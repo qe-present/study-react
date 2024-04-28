@@ -1,5 +1,7 @@
 name: 构建react项目
 on: push
+permissions:
+  contents: write
 jobs:
   npm-build:
     name: npm build 工作
