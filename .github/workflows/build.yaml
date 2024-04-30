@@ -20,7 +20,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: 01-build
-          folder: build
+          folder: 01-build
   two-build:
     name: 02 build 工作
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: 02-build
-          folder: build
+          folder: 02-build
 
 
 
