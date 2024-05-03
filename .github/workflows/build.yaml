@@ -6,6 +6,7 @@ permissions:
 
 jobs:
   one-build:
+    if: "contains(github.event.head_commit.message, '01')"
     name: 01 build 工作
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +22,9 @@ jobs:
         with:
           branch: 01-build
           folder: 01-build
+
   two-build:
+    if: "contains(github.event.head_commit.message, '02')"
     name: 02 build 工作
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +40,22 @@ jobs:
         with:
           branch: 02-build
           folder: 02-build
-
+  three-build:
+    if: "contains(github.event.head_commit.message, '03')"
+    name: 03 build 工作
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+      - name: 安装依赖和构建
+        run: |
+          cd 03-project
+          npm install
+          npm run build
+      - name: 部署 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: 03-build
+          folder: 03-build
 
 
