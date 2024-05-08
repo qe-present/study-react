@@ -1,4 +1,4 @@
 
 $${\color{red}study \quad react}$$
-if you want yo know the change for color,you can visit it 
+if you want yo see how the colours change,you can visit it 
 
