@@ -1,2 +1,2 @@
 
-$${\color{red}study react}$$
+$${\color{red}study \quad react}$$
