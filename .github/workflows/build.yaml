@@ -57,5 +57,23 @@ jobs:
         with:
           branch: 03-build
           folder: 03-build
+  four-build:
+    if: "contains(github.event.head_commit.message, '04')"
+    name: 04 build 工作
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+      - name: 安装依赖和构建
+        run: |
+          cd 04-styling
+          npm install
+          npm run build
+      - name: 部署 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: 04-build
+          folder: 04-build
+
 
 
