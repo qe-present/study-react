@@ -5,38 +5,28 @@ permissions:
   contents: write
 
 jobs:
-  default: &default
+  defaults: &defaults
     runs-on: ubuntu-latest
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
       - name: 安装依赖和构建
         run: |
-          cd 
+          cd ${{ env.MESSAGE }}-${{ env.MY_VAR }}
           npm install
           npm run build
       - name: 部署 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: build
+          branch: ${{ env.MESSAGE }}-build
+          folder: ${{ env.MESSAGE }}-build
   one-build:
+    env:
+      MY_VAR: start
+      MESSAGE: ${{ github.event.head_commit.message }}
     if: "contains(github.event.head_commit.message, '01')"
     name: 01 build 工作
-    runs-on: ubuntu-latest
-    steps:
-      - name: 读取仓库内容
-        uses: actions/checkout@v4
-      - name: 安装依赖和构建
-        run: |
-          cd 01-start
-          npm install
-          npm run build
-      - name: 部署 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: 01-build
-          folder: 01-build
+    <<: *defaults
 
   two-build:
     if: "contains(github.event.head_commit.message, '02')"
