@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_VAR: start
-    name: ${{env.MESSAGE}} build 工作
+    name: ${{ github.event.head_commit.message }} build 工作
     steps:
       - name: 检查条件
         id: check
