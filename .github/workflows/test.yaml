@@ -14,7 +14,7 @@ jobs:
           for dir in $(ls -d */); do
             directories="$directories ${dir%/}"
           done
-          echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
+          "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
 
       - name: 打印环境变量
         run: |
