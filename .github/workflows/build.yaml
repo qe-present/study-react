@@ -15,8 +15,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        run: |
+          pwd
+
       - name: Run my action
-        uses: .github/actions/action
+
+        uses: ./.github/actions/action
 #
 #  two-build:
 #    if: "contains(github.event.head_commit.message, '02')"
