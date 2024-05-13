@@ -10,9 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_VAR: start
-    if: contains(github.event.head_commit.message, '01')
-    name: 01 build 工作
+    name: $MESSAGE build 工作
     steps:
+      - name: 检查条件
+        id: check
+        run: |
+          case "${{ env.MESSAGE }}" in
+          "01"|"02"|"03"|"04"|"05"|"06")
+          echo "MESSAGE 是 01，02，03，04，05 或 06，继续工作流"
+          ;;
+          *)
+          echo "MESSAGE 不是 01，02，03，04，05 或 06，结束工作流"
+          exit 1
+          ;;
+          esac
       - name: 读取仓库内容
         uses: actions/checkout@v4
       - name: 打包项目
