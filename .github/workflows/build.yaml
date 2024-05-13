@@ -18,7 +18,7 @@ jobs:
       - name: 打包项目
         uses: ./.github/actions/build-action
   two-build:
-    if: "contains(github.event.head_commit.message, '02')"
+    if: "contains(github.event.head_commit.message, '$MESSAGE')"
     name: 02 build 工作
     runs-on: ubuntu-latest
     env:
