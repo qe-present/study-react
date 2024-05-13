@@ -5,7 +5,7 @@ runs:
   steps:
     - name: 安装依赖和构建
       run: |
-        cd ${{ env.MESSAGE }}-${{ env.MY_VAR }}
+        cd $MESSAGE-$MY_VAR
         npm install
         npm run build
       shell: bash
