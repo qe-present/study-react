@@ -16,8 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run my action
-        run: |
-          pwd
+        uses: ./.github/actions/action
+        with:
+          MY_VAR: ${{ env.MY_VAR }}
+          MESSAGE: ${{ env.MESSAGE }}
 #
 #  two-build:
 #    if: "contains(github.event.head_commit.message, '02')"
