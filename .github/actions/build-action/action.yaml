@@ -3,8 +3,6 @@ description: 'This is a reusable action'
 runs:
   using: 'composite'
   steps:
-    - name: 读取仓库内容
-      uses: actions/checkout@v4
     - name: 安装依赖和构建
       run: |
         cd ${{ env.MESSAGE }}-${{ env.MY_VAR }}

@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
-      - name: Run my action
+      - name: 打包项目
         uses: ./.github/actions/build-action
 #  two-build:
 #    if: "contains(github.event.head_commit.message, '02')"
