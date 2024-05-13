@@ -19,8 +19,8 @@ jobs:
           pwd
 
       - name: Run my action
-
-        uses: ./.github/actions/action
+        run: |
+          pwd
 #
 #  two-build:
 #    if: "contains(github.event.head_commit.message, '02')"
