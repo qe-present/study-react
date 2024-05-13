@@ -3,13 +3,13 @@ on: push
 
 permissions:
   contents: write
-
+env:
+    MESSAGE: ${{ github.event.head_commit.message }}
 jobs:
   one-build:
     runs-on: ubuntu-latest
     env:
       MY_VAR: start
-      MESSAGE: ${{ github.event.head_commit.message }}
     if: "contains(github.event.head_commit.message, '01')"
     name: 01 build 工作
     steps:
