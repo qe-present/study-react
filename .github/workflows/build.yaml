@@ -21,6 +21,8 @@ jobs:
     if: "contains(github.event.head_commit.message, '02')"
     name: 02 build 工作
     runs-on: ubuntu-latest
+    env:
+      MY_VAR: start
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
@@ -30,6 +32,8 @@ jobs:
     if: "contains(github.event.head_commit.message, '03')"
     name: 03 build 工作
     runs-on: ubuntu-latest
+    env:
+      MY_VAR: practice
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
@@ -40,6 +44,8 @@ jobs:
     if: "contains(github.event.head_commit.message, '04')"
     name: 04 build 工作
     runs-on: ubuntu-latest
+    env:
+      MY_VAR: styling
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
