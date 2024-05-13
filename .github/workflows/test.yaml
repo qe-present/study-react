@@ -23,3 +23,5 @@ jobs:
           do
             echo "Directory $index: ${array[index]}"
           done
+          echo "$array[@]"
+          
