@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_VAR: start
-    name: ${{MESSAGE}} build 工作
+    name: ${{env.MESSAGE}} build 工作
     steps:
       - name: 检查条件
         id: check
