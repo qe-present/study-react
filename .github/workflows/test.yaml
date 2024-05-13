@@ -1,0 +1,18 @@
+name: 设置文件夹名为环境变量
+on: push
+
+jobs:
+  set-directory-name-as-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+
+      - name: 设置文件夹名为环境变量
+        run: |
+          for dir in $(ls -d */); do
+            echo "DIRECTORY_NAME=${dir%/}" >> $GITHUB_ENV
+          done
+
+      - name: 打印环境变量
+        run: echo "Directory name is $DIRECTORY_NAME"
