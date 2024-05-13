@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run my action
-        uses: ./.github/actions/action
+        uses: ./.github/actions/hello-world-action
         with:
           MY_VAR: ${{ env.MY_VAR }}
           MESSAGE: ${{ env.MESSAGE }}
