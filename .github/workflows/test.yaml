@@ -32,4 +32,4 @@ jobs:
           MESSAGE=${{ github.event.head_commit.message }}
           num=$((10#$MESSAGE)) # num 现在是整数 1
           echo $num
-          echo "${array[num-1]}"
+          echo "${array[$MESSAGE-1]}"
