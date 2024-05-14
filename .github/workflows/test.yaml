@@ -1,14 +1,13 @@
 name: 设置文件夹名为环境变量
 on: push
 env:
-   MESSAGE: "01"
+   MESSAGE: ("01"|"02"|"03"|"04"|"05"|"06"|"07")
 jobs:
   set-directory-name-as-env:
     runs-on: ubuntu-latest
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
-
       - id: check_message
         run: |
           if [[ "${{ github.event.head_commit.message }}" == *"${{ env.MESSAGE }}"* ]]; then

@@ -16,13 +16,13 @@ jobs:
         id: check
         run: |
           case "${{ env.MESSAGE }}" in
-          "01"|"02"|"03"|"04"|"05"|"06")
-          echo "MESSAGE 是 ${{ env.MESSAGE }} ，继续工作流"
-          ;;
-          *)
-          echo "MESSAGE 不满足条件，结束工作流"
-          exit 1
-          ;;
+            "01"|"02"|"03"|"04"|"05"|"06"|"07")
+            echo "MESSAGE 是 ${{ env.MESSAGE }} ，继续工作流"
+            ;;
+            *)
+            echo "MESSAGE 不满足条件，结束工作流"
+            exit 1
+            ;;
           esac
       - name: 读取仓库内容
         uses: actions/checkout@v4
