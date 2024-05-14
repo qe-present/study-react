@@ -9,14 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MESSAGE: ${{github.event.head_commit.message }}
-    name: ${{ github.event.head_commit.message }} build 工作
+    name: ${{ github.event.head_commit.message }} 工作
     steps:
       - name: 检查条件
         id: check
         run: |
-
           case "${{ env.MESSAGE }}" in
-            "01"|"02"|"03"|"04"|"05"|"06"|"07"|"08")
+            "01"|"02"|"03"|"04"|"05"|"06"|"07"|"08"|"09"|"10")
             echo "MESSAGE 是 ${{ env.MESSAGE }} ，继续工作流"
             echo "result=true" >> $GITHUB_ENV
             ;;
