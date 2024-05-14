@@ -18,7 +18,7 @@ runs:
     - name: 安装依赖和构建
       run: |
         MESSAGE=${{ github.event.head_commit.message }}
-        cd "${array[$MESSAGE-1]}"
+        cd ${array[$MESSAGE-1]}
         npm install
         npm run build
       shell: bash
