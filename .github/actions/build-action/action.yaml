@@ -12,11 +12,12 @@ runs:
           directories="$directories ${dir%/}"
         done
         echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
-        IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
+
       shell: bash
 
     - name: 安装依赖和构建
       run: |
+        IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
         MESSAGE=${{ github.event.head_commit.message }}
         num=$((10#$MESSAGE)) # convert MESSAGE to an integer
         echo "MESSAGE is $MESSAGE, num is $num"
