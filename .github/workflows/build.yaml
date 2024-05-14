@@ -20,7 +20,7 @@ jobs:
             ;;
             *)
             echo "MESSAGE 不满足条件，结束工作流"
-            exit 1
+            exit 0
             ;;
           esac
       - name: 读取仓库内容
