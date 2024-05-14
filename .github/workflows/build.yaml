@@ -25,10 +25,12 @@ jobs:
             echo "result=false" >> $GITHUB_ENV
             ;;
           esac
-      - name: 检查结果
-        if: env.result == 'true'
-        run: |
-          echo "继续工作"
-          actions/checkout@v4
-          ./.github/actions/build-action
+      - name: 读取仓库内容
+        if : env.result == 'true'
+        uses: actions/checkout@v4
+
+      - name: 打包项目
+        if : env.result == 'true'
+        uses: ./.github/actions/build-action
+
 
