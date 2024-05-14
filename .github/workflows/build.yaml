@@ -14,21 +14,22 @@ jobs:
       - name: 检查条件
         id: check
         run: |
+
           case "${{ env.MESSAGE }}" in
             "01"|"02"|"03"|"04"|"05"|"06"|"07"|"08")
             echo "MESSAGE 是 ${{ env.MESSAGE }} ，继续工作流"
-            echo "::set-output name=result::true"
+            echo "result=true" >> $GITHUB_ENV
             ;;
             *)
             echo "MESSAGE 不满足条件，结束工作流"
-            echo "::set-output name=result::false"
+            echo "result=false" >> $GITHUB_ENV
             ;;
           esac
       - name: 读取仓库内容
-        if : steps.check.outputs.run == 'true'
+        if : env.result == 'true'
         uses: actions/checkout@v4
       - name: 打包项目
-        if : steps.check.outputs.run == 'true'
+        if : env.result == 'true'
         uses: ./.github/actions/build-action
 
 
