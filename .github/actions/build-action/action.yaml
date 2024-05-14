@@ -21,7 +21,7 @@ runs:
         num=$((10#$MESSAGE)) # convert MESSAGE to an integer
         echo "MESSAGE is $MESSAGE, num is $num"
         echo "${array[$num-1]}"
-        cd ${array[$num-1]}
+        cd "${array[$num-1]}"
         npm install
         npm run build
       shell: bash
