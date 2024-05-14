@@ -30,6 +30,6 @@ jobs:
             echo "Directory $index: ${array[index]}"
           done
           MESSAGE=${{ github.event.head_commit.message }}
-          num=$((10#MESSAGE)) # num 现在是整数 1
+          num=$((10#$MESSAGE)) # num 现在是整数 1
           echo $num
           echo "${array[num]}"
