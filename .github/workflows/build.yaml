@@ -28,7 +28,7 @@ jobs:
       - name: 检查结果
         if: env.result == 'true'
         run: |
-          echo "继续工作流"
+          echo "继续工作"
           actions/checkout@v4
           ./.github/actions/build-action
 
