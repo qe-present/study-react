@@ -12,7 +12,6 @@ runs:
           directories="$directories ${dir%/}"
         done
         echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
-
       shell: bash
 
     - name: 安装依赖和构建
