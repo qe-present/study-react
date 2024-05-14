@@ -3,13 +3,12 @@ on: push
 
 permissions:
   contents: write
-env:
-    MESSAGE: ${{ github.event.head_commit.message }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MY_VAR: start
+      MESSAGE: ${{github.event.head_commit.message }}
     name: ${{ github.event.head_commit.message }} build 工作
     steps:
       - name: 检查条件

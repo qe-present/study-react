@@ -2,13 +2,27 @@ name: 'My reusable action'
 description: 'This is a reusable action'
 runs:
   using: 'composite'
+
   steps:
+
+    - name: 设置文件夹名为环境变量
+      run: |
+        directories=""
+        for dir in $(ls -d */); do
+          directories="$directories ${dir%/}"
+        done
+        echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
+        IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
+      shell: bash
+
     - name: 安装依赖和构建
       run: |
-        cd $MESSAGE-$MY_VAR
+        MESSAGE=${{ github.event.head_commit.message }}
+        cd "${array[$MESSAGE-1]}"
         npm install
         npm run build
       shell: bash
+
     - name: 部署 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:

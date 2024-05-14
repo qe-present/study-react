@@ -1,35 +1,33 @@
-name: 设置文件夹名为环境变量
-on: push
-jobs:
-  set-directory-name-as-env:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 读取仓库内容
-        uses: actions/checkout@v4
-      - name: 判断是否匹配
-        run: |
-          MESSAGE="01 02 03 04 05 06 07"
-          if [[ $MESSAGE =~ (^|[[:space:]])"${{ github.event.head_commit.message }}"($|[[:space:]]) ]]; then
-            echo "MATCH=true" >> $GITHUB_ENV
-          else
-            echo "MATCH=false" >> $GITHUB_ENV
-          fi
-      - name: 设置文件夹名为环境变量
-        run: |
-          directories=""
-          for dir in $(ls -d */); do
-            directories="$directories ${dir%/}"
-          done
-          echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
-
-      - name: 打印环境变量
-        run: |
-          IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
-          for index in "${!array[@]}"
-          do
-            echo "Directory $index: ${array[index]}"
-          done
-          MESSAGE=${{ github.event.head_commit.message }}
-          num=$((10#$MESSAGE)) # num 现在是整数 1
-          echo $num
-          echo "${array[$MESSAGE-1]}"
+#name: 设置文件夹名为环境变量
+#on: push
+#jobs:
+#  set-directory-name-as-env:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: 读取仓库内容
+#        uses: actions/checkout@v4
+#      - name: 判断是否匹配
+#        run: |
+#          MESSAGE="01 02 03 04 05 06 07"
+#          if [[ $MESSAGE =~ (^|[[:space:]])"${{ github.event.head_commit.message }}"($|[[:space:]]) ]]; then
+#            echo "MATCH=true" >> $GITHUB_ENV
+#          else
+#            echo "MATCH=false" >> $GITHUB_ENV
+#          fi
+#      - name: 设置文件夹名为环境变量
+#        run: |
+#          directories=""
+#          for dir in $(ls -d */); do
+#            directories="$directories ${dir%/}"
+#          done
+#          echo "DIRECTORY_NAMES=$directories" >> $GITHUB_ENV
+#
+#      - name: 打印环境变量
+#        run: |
+#          IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
+#          for index in "${!array[@]}"
+#          do
+#            echo "Directory $index: ${array[index]}"
+#          done
+#          MESSAGE=${{ github.event.head_commit.message }}
+#          echo "${array[$MESSAGE-1]}"
