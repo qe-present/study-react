@@ -18,7 +18,6 @@ runs:
     - name: 安装依赖和构建
       run: |
         IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
-        MESSAGE=${{ github.event.head_commit.message }}
         cd "${array[$MESSAGE-1]}"
         npm install
         npm run build
