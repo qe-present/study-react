@@ -18,8 +18,10 @@ runs:
     - name: 安装依赖和构建
       run: |
         MESSAGE=${{ github.event.head_commit.message }}
-        num=$((10#$MESSAGE)) # convert MESSAGE to an integer
-        cd "${array[$num-1]}"
+        num=$((10#MESSAGE)) # convert MESSAGE to an integer
+        echo "MESSAGE is $MESSAGE, num is $num"
+        echo "${array[$num-1]}"
+        cd ${array[$num-1]}
         npm install
         npm run build
       shell: bash
