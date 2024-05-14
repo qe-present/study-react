@@ -29,4 +29,9 @@ jobs:
           do
             echo "Directory $index: ${array[index]}"
           done
-          echo "${array[@]}"
+          MESSAGE=${{ github.event.head_commit.message }}
+          if [[ "$MESSAGE" =~ ^[0-9]+$ ]] && [ "$MESSAGE" -ge 0 ] && [ "$MESSAGE" -lt ${#array[@]} ]; then
+            echo "${array[$MESSAGE]}"
+          else
+            echo "Invalid index: $MESSAGE"
+          fi
