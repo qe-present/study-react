@@ -26,8 +26,4 @@ runs:
       with:
         branch: ${{env.MESSAGE}}-build
         folder: ${{env.MESSAGE}}-build
-    - name: 下载
-      run: |
-        gh run download
-      shell: bash
 
