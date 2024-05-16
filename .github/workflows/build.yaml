@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MESSAGE: ${{github.event.head_commit.message }}
+      GH_TOKEN: ${{ github.token }}
     name: ${{ github.event.head_commit.message }} 工作
     steps:
       - name: 检查条件
