@@ -31,9 +31,5 @@ runs:
       with:
           name: ${{env.MESSAGE}}-build
           path: ${{env.MESSAGE}}-build
-    - name: 下载
-      uses: actions/download-artifact@v4
-      with:
-          name: ${{env.MESSAGE}}-build
-          path: ${{env.MESSAGE}}-build
+
 
