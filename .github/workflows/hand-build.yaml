@@ -1,4 +1,4 @@
-name: 手动构建
+name: 手动构建react项目
 on:
   workflow_dispatch:
     inputs:

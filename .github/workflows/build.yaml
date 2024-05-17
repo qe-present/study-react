@@ -1,4 +1,4 @@
-name: 构建react项目
+name: 自动构建react项目
 on: push
 
 permissions:
