@@ -1,0 +1,33 @@
+name: hand-build.yaml
+on:
+  workflow_dispatch:
+    inputs:
+      file-number:
+        description: '选择要构建的文件编号'
+        required: true
+        default: 'main'
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      MESSAGE: ${{inputs.file-number}}
+    name: ${{ inputs.file-number }} 工作
+    steps:
+      - name: 检查条件
+        id: check
+        run: |
+          for i in {1..10};do
+            if [ "$i" -eq $MESSAGE ];then
+              echo "MESSAGE 是 $MESSAGE ，继续工作流"
+              echo "result=true" >> $GITHUB_ENV
+              break
+            fi
+          done
+      - name: 读取仓库内容
+        if : env.result == 'true'
+        uses: actions/checkout@v4
+
+      - name: 打包项目
+        if : env.result == 'true'
+        uses: ./.github/actions/build-action
