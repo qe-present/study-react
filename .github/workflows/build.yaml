@@ -18,7 +18,6 @@ jobs:
             if [ "$i" -eq $MESSAGE ];then
               echo "MESSAGE 是 $MESSAGE ，继续工作流"
               echo "result=true" >> $GITHUB_ENV
-              echo "MESSAGE='0'+'$MESSAGE'" >> $GITHUB_ENV
               break
             fi
           done
