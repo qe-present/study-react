@@ -16,6 +16,7 @@ runs:
     - name: 安装依赖和构建
       run: |
         IFS=' ' read -r -a array <<< "$DIRECTORY_NAMES"
+        echo "${array[$MESSAGE-1]}"
         cd "${array[$MESSAGE-1]}"
         npm install
         npm run build
