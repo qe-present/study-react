@@ -15,16 +15,13 @@ jobs:
       - name: 检查条件
         id: check
         run: |
-          case "${{ env.MESSAGE }}" in
-            "01"|"02"|"03"|"04"|"05"|"06"|"07"|"08"|"09"|"10")
-            echo "MESSAGE 是 ${{ env.MESSAGE }} ，继续工作流"
-            echo "result=true" >> $GITHUB_ENV
-            ;;
-            *)
-            echo "MESSAGE 不满足条件，结束工作流"
-            echo "result=false" >> $GITHUB_ENV
-            ;;
-          esac
+          for i in {1..10};do
+            if [ "0"+$i -eq $MESSAGE ];then
+              echo "MESSAGE 是 $MESSAGE ，继续工作流"
+              echo "result=true" >> $GITHUB_ENV
+              break
+            fi
+          done
       - name: 读取仓库内容
         if : env.result == 'true'
         uses: actions/checkout@v4
