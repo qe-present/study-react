@@ -1,11 +1,11 @@
-name: hand-build.yaml
+name: 手动构建
 on:
   workflow_dispatch:
     inputs:
       file-number:
         description: '选择要构建的文件编号'
         required: true
-        default: 'main'
+        default: '01'
         type: string
 jobs:
   build:
