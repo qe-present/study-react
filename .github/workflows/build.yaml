@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MESSAGE: ${{github.event.head_commit.message }}
-      GH_TOKEN: ${{ github.token }}
     name: ${{ github.event.head_commit.message }} 工作
     steps:
       - name: 检查条件
         id: check
         run: |
           for i in {1..10};do
-            if [ "0"+$i -eq $MESSAGE ];then
+            if [ "$i" -eq $MESSAGE ];then
               echo "MESSAGE 是 $MESSAGE ，继续工作流"
               echo "result=true" >> $GITHUB_ENV
+              echo "MESSAGE='0'+'$MESSAGE'" >> $GITHUB_ENV
               break
             fi
           done
