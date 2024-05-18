@@ -7,9 +7,6 @@ on:
         required: true
         default: '01'
         type: string
-
-
-
 permissions:
   contents: write
 jobs:
