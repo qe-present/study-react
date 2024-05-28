@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [million.vite({auto: true}), react()],
   base: './',
   build: {
-    outDir: '../10-build',
+    outDir: '../11-build',
     assetsDir: 'assets',
     rollupOptions: {
       input: 'index.html',
