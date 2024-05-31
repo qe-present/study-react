@@ -1,14 +1,11 @@
 import { Fragment, Component } from 'react';
-
+import UserContext from '../store/users-context';
 import Users from './Users';
 import classes from './UserFinder.module.css';
+import ErrorBoundary from './ErrotBoundary';
 
-const DUMMY_USERS = [
-  { id: 'u1', name: 'Max' },
-  { id: 'u2', name: 'Manuel' },
-  { id: 'u3', name: 'Julie' },
-];
 class UserFinder extends Component {
+  static contextType = UserContext;
   constructor() {
     super();
     this.state = {
@@ -18,13 +15,13 @@ class UserFinder extends Component {
   }
   componentDidMount() {
     // Send http request...
-    this.setState({ filteredUsers: DUMMY_USERS });
+    this.setState({ filteredUsers: this.context.users });
 
   }
   componentDidUpdate(prevProps, prevState) {
     if(prevState.searchTerm !== this.state.searchTerm){
       this.setState({
-        filteredUsers: DUMMY_USERS.filter((user) =>
+        filteredUsers: this.context.users.filter((user) =>
             user.name.includes(this.state.searchTerm)),
       });
 
@@ -40,10 +37,14 @@ class UserFinder extends Component {
   render() {
     return (
         <Fragment>
+
           <div className={classes.finder}>
             <input type='search' onChange={this.searchChangeHandler.bind(this)} />
           </div>
-          <Users users={this.state.filteredUsers} />
+          <ErrorBoundary>
+            <Users users={this.state.filteredUsers} />
+
+          </ErrorBoundary>
         </Fragment>
     );
   }
