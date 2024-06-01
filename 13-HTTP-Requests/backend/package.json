@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": "app.js",
+
   "scripts": {
-    "start": "node app.js"
+    "pkg": "pkg ./app.js -t  node20-win-x64--out-path dist/"
   },
   "keywords": [],
   "author": "",
