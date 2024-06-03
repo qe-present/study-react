@@ -3,8 +3,6 @@ import fs from 'node:fs/promises';
 
 import bodyParser from 'body-parser';
 import express from 'express';
-import path from "path";
-import {fileURLToPath} from "url";
 
 const app = express();
 
@@ -20,13 +18,10 @@ app.use((req, res, next) => {
 
   next();
 });
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-let placesJsonFile=path.resolve(__dirname, 'data/places.json')
-let placesUserJsonFile=path.resolve(__dirname, 'data/user-places.json')
+
 app.get('/places', async (req, res) => {
 
-  const fileContent = await fs.readFile(placesJsonFile);
+  const fileContent = await fs.readFile('./data/places.json');
 
   const placesData = JSON.parse(fileContent);
 
@@ -34,7 +29,7 @@ app.get('/places', async (req, res) => {
 });
 
 app.get('/user-places', async (req, res) => {
-  const fileContent = await fs.readFile(placesUserJsonFile);
+  const fileContent = await fs.readFile('./data/user-places.json');
 
   const places = JSON.parse(fileContent);
 
@@ -44,7 +39,7 @@ app.get('/user-places', async (req, res) => {
 app.put('/user-places', async (req, res) => {
   const places = req.body.places;
 
-  await fs.writeFile(placesUserJsonFile, JSON.stringify(places));
+  await fs.writeFile('./data/user-places.json', JSON.stringify(places));
 
   res.status(200).json({ message: 'User places updated!' });
 });
@@ -58,3 +53,4 @@ app.use((req, res, next) => {
 });
 
 app.listen(3000);
+console.log('Server running on port 3000');

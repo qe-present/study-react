@@ -9,7 +9,8 @@ export default {
     target:"node",
     output: {
         path: path.resolve(__dirnameNew, '../../13-build/backend'),
-        filename: 'bundle.cjs',
+        filename: 'main.cjs',
+        clean: true,
     },
     plugins: [
         new CopyPlugin({
