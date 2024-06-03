@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "bin": "app.js",
-
   "scripts": {
-    "pkg": "pkg ./app.js -t  node20-win-x64--out-path dist/"
+    "start": "node app.js",
+    "pkg": "pkg ./app.js -t  node22-win-x64--out-path dist/",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,10 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }
