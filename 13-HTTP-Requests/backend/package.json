@@ -7,7 +7,6 @@
   "bin": "app.js",
   "scripts": {
     "start": "node app.js",
-    "pkg": "pkg ./app.js -t  node22-win-x64--out-path dist/",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
