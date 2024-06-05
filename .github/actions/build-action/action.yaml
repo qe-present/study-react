@@ -20,7 +20,13 @@ runs:
         cd "${array[$index]}"
         npm install
         npm run build
-        if index==13 or index==14
+        if index==13
+        then
+          cd backend
+          npm install
+          npm run build
+        fi
+        if index==14
         then
           cd backend
           npm install
