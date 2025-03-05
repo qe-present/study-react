@@ -20,20 +20,17 @@ runs:
         cd "${array[$index]}"
         npm install
         npm run build
-        if [ "$MESSAGE"  -eq 13  ];
-        then
-          echo "构建13backend"
+        case "$MESSAGE" in
+          13|16)
+          echo "构建 $MESSAGE 后端"
           cd backend
           npm install
           npm run build
-        fi
-        if [ "$MESSAGE" -eq 16 ];
-        then
-          echo "构建16backend"
-          cd backend
-          npm install
-          npm run build
-        fi
+          ;;
+          *)
+          echo "No backend build required for MESSAGE=$MESSAGE"
+          ;;
+        esac
       shell: bash
 
     - name: 部署 🚀
