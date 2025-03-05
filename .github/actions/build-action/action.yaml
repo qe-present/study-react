@@ -20,7 +20,7 @@ runs:
         cd "${array[$index]}"
         npm install
         npm run build
-        if ["$MESSAGE"  -eq 13  ]
+        if ["$MESSAGE"  -eq 13  ];
         then
           echo "构建backend"
           cd backend
