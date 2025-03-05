@@ -22,14 +22,15 @@ runs:
         npm run build
         if [ "$MESSAGE"  -eq 13  ];
         then
-          echo "构建backend"
+          echo "构建13backend"
           cd backend
           npm install
           npm run build
         fi
-        if [ $index -eq 16 ]
+        if [ "$MESSAGE" -eq 16 ];
         then
-          cd ../backend
+          echo "构建16backend"
+          cd backend
           npm install
           npm run build
         fi
