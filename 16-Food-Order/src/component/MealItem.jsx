@@ -3,10 +3,13 @@ import Button from "./UI/Button.jsx";
 import {useContext} from "react";
 import CartContext from "../store/CartContext.jsx";
 export default function MealItem({meal}){
+    console.log(meal.image)
     const  cartCtx= useContext(CartContext)
     function handleAddMealToCart(){
+
         cartCtx.addItem(meal);
     }
+
     return (
         <li className="meal-item">
             <article>
