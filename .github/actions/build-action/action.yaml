@@ -20,7 +20,9 @@ runs:
         cd "${array[$index]}"
         npm install
         npm run build
-        if [ $index+1 -eq 13  ]
+        endInstall=index+1
+        echo "endInstall=$endInstall"
+        if [endInstall  -eq 13  ]
         then
           echo "构建backend"
           cd backend
