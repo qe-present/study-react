@@ -1,7 +1,6 @@
 import classes from './Auth.module.css';
 import {useDispatch} from "react-redux";
 import {authActions} from '../store/login';
-import login from "../store/login";
 const Auth = () => {
   const dispatch=useDispatch()
   function handleSubmit(event){
