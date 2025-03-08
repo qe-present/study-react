@@ -15,11 +15,5 @@
   },
   "devDependencies": {
     "parcel": "^2.13.3"
-  },
-  "parcel": {
-    "buildOptions": {
-      "outDir": "../17-build"
-    }
   }
-
 }
