@@ -1,5 +1,5 @@
 import MainNavigation from "../components/MainNavigation.jsx";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigation} from "react-router-dom";
 
 export default function Root() {
     return(
