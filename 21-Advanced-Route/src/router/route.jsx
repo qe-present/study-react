@@ -9,6 +9,7 @@ import EventLoader from "./loader/EventLoader.jsx";
 import Error from "../pages/Error.jsx";
 import EventOne from "./loader/EventOne.jsx";
 import {action as manipulateEventAction}  from '../components/EventForm.jsx'
+import Newsletter,{action as newLetterAction} from "../pages/Newsletter.jsx";
 const routes = [
     {
         path: '/',
@@ -51,6 +52,11 @@ const routes = [
                         action:manipulateEventAction
                     }
                     ]
+            },
+            {
+                path: 'newsletter',
+                element: <Newsletter />,
+                action:newLetterAction
             }
 
         ]
