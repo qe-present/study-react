@@ -29,6 +29,11 @@ jobs:
       - name: 读取仓库内容
         if : env.result == 'true'
         uses: actions/checkout@v4
+      - name：设置node版本
+        if : env.result == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
       - name: 打包项目
         if : env.result == 'true'
