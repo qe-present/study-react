@@ -1,0 +1,1 @@
+const fs=require("node:fs/promises");async function readData(){const a=await fs.readFile("events.json","utf8");return JSON.parse(a)}async function writeData(a){await fs.writeFile("events.json",JSON.stringify(a))}exports.readData=readData,exports.writeData=writeData;
