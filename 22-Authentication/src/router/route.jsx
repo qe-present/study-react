@@ -10,11 +10,17 @@ import Error from "../pages/Error.jsx";
 import EventOne from "./loader/EventOne.jsx";
 import {action as manipulateEventAction}  from '../components/EventForm.jsx'
 import Newsletter,{action as newLetterAction} from "../pages/Newsletter.jsx";
+import Authentication,{action as authActon} from "../pages/Authentication.jsx";
+import {action as Logout} from '../pages/Logout.jsx'
+import TokenLoader from "./loader/TokenLoader.jsx";
+import CheckToken from "./loader/CheckToken.jsx";
 const routes = [
     {
         path: '/',
         element: <Root />,
         errorElement: <Error />,
+        id:'root',
+        loader:TokenLoader,
         children:[
             {
                 index:true,
@@ -42,23 +48,33 @@ const routes = [
                             {
                                 path: 'edit',
                                 element: <EditEvent />,
-                                action:manipulateEventAction
+                                action:manipulateEventAction,
+                                loader:CheckToken
                             }
                         ]
                     },
                     {
                         path: 'new',
                         element: <NewEvent />,
-                        action:manipulateEventAction
+                        action:manipulateEventAction,
+                        loader:CheckToken
                     }
                     ]
+            },
+            {
+                path: 'auth',
+                element: <Authentication/>,
+                action:authActon
             },
             {
                 path: 'newsletter',
                 element: <Newsletter />,
                 action:newLetterAction
+            },
+            {
+                path: 'logout',
+                action:Logout
             }
-
         ]
     }
 ]

@@ -3,12 +3,12 @@ import {Await, useLoaderData} from "react-router";
 import {Suspense} from "react";
 
 function EventsPage() {
-    const {events}=useLoaderData()
+    const {events} = useLoaderData()
     return (
-        <Suspense fallback={<p style={{textAlign:'center'}}>Loading...</p>}>
-        <Await resolve={events}>
-            {(loadedEvents)=><EventsList events={loadedEvents}/>}
-        </Await>
+        <Suspense fallback={<p style={{textAlign: 'center'}}>Loading...</p>}>
+            <Await resolve={events}>
+                {(loadedEvents) => <EventsList events={loadedEvents}/>}
+            </Await>
         </Suspense>
     )
 }

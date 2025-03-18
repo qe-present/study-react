@@ -1,5 +1,5 @@
 import classes from './NewsletterSignup.module.css';
-import {useFetcher,Form} from "react-router-dom";
+import {useFetcher,Form} from "react-router";
 import {useEffect} from "react";
 
 function NewsletterSignup() {
