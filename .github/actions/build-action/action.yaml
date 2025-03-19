@@ -21,7 +21,7 @@ runs:
         npm install
         npm run build
         case "$MESSAGE" in
-          13|16|21|22 )
+          13|16|21|22)
           echo "构建 $MESSAGE 后端"
           cd backend
           npm install
@@ -43,5 +43,3 @@ runs:
       with:
           name: ${{env.MESSAGE}}-build
           path: ${{env.MESSAGE}}-build
-
-
