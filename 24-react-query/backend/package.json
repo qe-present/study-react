@@ -6,13 +6,17 @@
   "type": "module",
   "scripts": {
     "install_": "pnpm install",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "Maximilian Schwarzmüller (Academind GmbH)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "copy-webpack-plugin": "^13.0.0"
   }
 }
