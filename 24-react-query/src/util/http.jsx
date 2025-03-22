@@ -1,12 +1,19 @@
 import {QueryClient} from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
-export async function fetchEvents({signal,searchTerm}) {
-    let url='http://localhost:3000/events';
-    if(searchTerm){
-        url+=`?search=${searchTerm}`;
+
+export async function fetchEvents({signal, searchTerm,max}) {
+    let url = 'http://localhost:3000/events';
+    if(searchTerm&&max){
+        url+=`?search=${searchTerm}&max=${max}`
+    }else if (searchTerm) {
+        url += `?search=${searchTerm}`;
+    }else if(max){
+        url+=`?max=${max}`
     }
-    const response = await fetch(url,{
+
+
+    const response = await fetch(url, {
         signal
     });
 
@@ -17,10 +24,11 @@ export async function fetchEvents({signal,searchTerm}) {
         throw error;
     }
 
-    const { events } = await response.json();
+    const {events} = await response.json();
 
     return events;
 }
+
 export async function createEvent(eventData) {
     const response = await fetch('http://localhost:3000/events', {
         method: 'POST',
@@ -37,11 +45,12 @@ export async function createEvent(eventData) {
         throw error;
     }
 
-    const {event}=await response.json();
+    const {event} = await response.json();
     return event;
 }
+
 export async function fetchImages({signal}) {
-    const response = await fetch('http://localhost:3000/events/images',{
+    const response = await fetch('http://localhost:3000/events/images', {
         signal
     });
 
@@ -52,14 +61,15 @@ export async function fetchImages({signal}) {
         throw error;
     }
 
-    const { images } = await response.json();
+    const {images} = await response.json();
 
     return images;
 
 }
+
 // id 获取
-export async function fetchEvent({id,signal}) {
-    const response = await fetch(`http://localhost:3000/events/${id}`,{
+export async function fetchEvent({id, signal}) {
+    const response = await fetch(`http://localhost:3000/events/${id}`, {
         signal
     });
 
@@ -70,10 +80,11 @@ export async function fetchEvent({id,signal}) {
         throw error;
     }
 
-    const { event } = await response.json();
+    const {event} = await response.json();
 
     return event;
 }
+
 //删除
 export async function deleteEvent({id}) {
     const response = await fetch(`http://localhost:3000/events/${id}`, {
@@ -86,4 +97,24 @@ export async function deleteEvent({id}) {
         error.info = await response.json();
         throw error;
     }
+}
+
+// 更新
+export async function updateEvent({id, event}) {
+    const response = await fetch(`http://localhost:3000/events/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({event}),
+    });
+
+    if (!response.ok) {
+        const error = new Error('An error occurred while updating the event');
+        error.code = response.status;
+        error.info = await response.json();
+        throw error;
+    }
+
+    return response.json();
 }

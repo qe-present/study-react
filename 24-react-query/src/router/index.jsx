@@ -1,4 +1,4 @@
-import { Navigate, RouterProvider, createHashRouter } from "react-router";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router";
 import route from "./route.jsx";
-const router = createHashRouter(route);
+const router = createBrowserRouter(route);
 export default router;

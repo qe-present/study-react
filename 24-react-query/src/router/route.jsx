@@ -1,7 +1,7 @@
 import Events from "../components/Events/Events.jsx";
 import NewEvent from "../components/Events/NewEvent.jsx";
 import EventDetails from "../components/Events/EventDetails.jsx";
-import EditEvent from "../components/Events/EditEvent.jsx";
+import EditEvent,{loader as editLoader,action as editAction} from "../components/Events/EditEvent.jsx";
 import {Navigate} from "react-router";
 
 const route =[
@@ -27,8 +27,14 @@ const route =[
             {
                 path: '/events/:id/edit',
                 element: <EditEvent />,
+                loader: editLoader,
+                action: editAction
             },
         ],
     },
+    {
+        path: '*',
+        element: <Navigate to="/events" />,
+    }
 ];
 export default route;
