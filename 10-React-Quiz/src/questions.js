@@ -31,20 +31,20 @@ export default [
   },
   {
     id: 'q4',
-    text: 'What is the most common way to create a component in React?',
+    text: 'What is the most common way to create a components in React?',
     answers: [
       'By defining a JavaScript function that returns a renderable value.',
       'By defining a custom HTML tag in JavaScript.',
       'By creating a file with a .jsx extension.',
-      'By using the "new" keyword followed by the component name.',
+      'By using the "new" keyword followed by the components name.',
     ],
   },
   {
     id: 'q5',
     text: 'What does the term "React state" imply?',
     answers: [
-      'An object in a component that holds values and may cause the component to render on change.',
-      'The lifecycle phase a React component is in.',
+      'An object in a components that holds values and may cause the components to render on change.',
+      'The lifecycle phase a React components is in.',
       'The overall status of a React application, including all props and components.',
       'A library for managing global state in React applications.',
     ],

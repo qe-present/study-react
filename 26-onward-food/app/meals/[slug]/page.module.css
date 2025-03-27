@@ -1,0 +1,369 @@
+.header {
+  display: flex;
+  padding: 2rem 1rem;
+  gap: 3rem;
+  margin: auto;
+  max-width: 80rem;
+  flex-wrap: wrap;
+}
+
+.image {
+  position: relative;
+  width: 30rem;
+  height: 20rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateY(3deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: perspective(1000px) rotateY(0);
+}
+
+.header img {
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-left 1s ease-out forwards;
+  transition: transform 0.5s ease;
+}
+
+.header img:hover {
+  transform: scale(1.05);
+}
+
+.headerText {
+  padding: 0.5rem 1rem 0 1rem;
+  color: #ddd6cb;
+  max-width: 40rem;
+  animation: fade-slide-in-from-right 1s ease-out forwards;
+  flex: 1;
+  min-width: 18rem;
+}
+
+.headerText h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.headerText h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  border-radius: 2px;
+}
+
+.creator {
+  font-size: 1.5rem;
+  color: #cfa69b;
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.creator a {
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: text-shadow 0.3s ease;
+  position: relative;
+}
+
+.creator a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.creator a:hover::after {
+  transform: scaleX(1);
+}
+
+.creator a:hover,
+.creator a:active {
+  text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
+}
+
+.summary {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  color: #e2dcd3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding-left: 20px;
+}
+
+.summary::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: 4px;
+  background: linear-gradient(to bottom, #f9572a, transparent);
+  border-radius: 2px;
+}
+
+.instructions {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  background-color: rgba(110, 100, 100, 0.9);
+  color: #f5f2ee;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  padding: 2rem 3rem;
+  max-width: 60rem;
+  margin: 2rem auto;
+  animation: fade-slide-in-from-bottom 1s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.instructions::before {
+  content: '烹饪步骤';
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ff8a05;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.instructions::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f9572a, #ff8a05, #f9572a);
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.loading {
+  font-size: 3rem;
+  text-align: center;
+  color: #ddd6cb;
+  font-weight: bold;
+  animation: flash 1s ease-in-out infinite alternate;
+  margin-top: 4rem;
+}
+
+@keyframes fade-slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-slide-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .image {
+    width: 100%;
+    max-width: 30rem;
+    transform: none;
+  }
+  
+  .headerText {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .headerText h1 {
+    font-size: 2.5rem;
+  }
+  
+  .headerText h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .summary::before {
+    display: none;
+  }
+  
+  .summary {
+    padding-left: 0;
+  }
+  
+  .instructions {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e2dcd3;
+  font-size: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.metaItem:hover {
+  transform: translateY(-2px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.metaIcon {
+  font-size: 1.5rem;
+}
+
+.ingredients {
+  margin-bottom: 2rem;
+}
+
+.ingredients::before {
+  content: '食材清单';
+}
+
+.ingredients h2 {
+  display: none;
+}
+
+.ingredients ul {
+  columns: 2;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.ingredients li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  break-inside: avoid;
+}
+
+.ingredients li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ff8a05;
+  font-size: 1.5rem;
+}
+
+.actions {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.button {
+  display: inline-block;
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .meta {
+    justify-content: center;
+  }
+  
+  .ingredients ul {
+    columns: 1;
+  }
+}

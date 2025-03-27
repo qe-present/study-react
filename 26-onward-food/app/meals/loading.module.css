@@ -1,0 +1,56 @@
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b89b84;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  position: relative;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.spinner:before,
+.spinner:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #b89b84;
+  opacity: 0.6;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.spinner:after {
+  animation-delay: -1s;
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

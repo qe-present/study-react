@@ -26,14 +26,14 @@ export const CORE_CONCEPTS = [
     image: stateImg,
     title: 'State',
     description:
-      'React-managed data which, when changed, causes the component to re-render & the UI to update.',
+      'React-managed data which, when changed, causes the components to re-render & the UI to update.',
   },
 ];
 export const EXAMPLES = {
   components: {
     title: 'Components',
     description:
-        'Components are the building blocks of React applications. A component is a self-contained module (HTML + optional CSS + JS) that renders some output.',
+        'Components are the building blocks of React applications. A components is a self-contained module (HTML + optional CSS + JS) that renders some output.',
     code: `
 function Welcome() {
   return <h1>Hello, World!</h1>;

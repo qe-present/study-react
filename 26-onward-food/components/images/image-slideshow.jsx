@@ -23,8 +23,10 @@ const images = [
 
 export default function ImageSlideshow() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex < images.length - 1 ? prevIndex + 1 : 0
@@ -40,7 +42,7 @@ export default function ImageSlideshow() {
         <Image
           key={index}
           src={image.image}
-          className={index === currentImageIndex ? classes.active : ''}
+          className={isClient && index === currentImageIndex ? classes.active : index === 0 && !isClient ? classes.active : ''}
           alt={image.alt}
         />
       ))}
