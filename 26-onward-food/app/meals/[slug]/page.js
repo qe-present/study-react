@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import classes from './page.module.css';
 import { getMeal } from "@/utils/meals";
-
 export default async function MealDetailPage({ params }) {
     const { slug } = params;
     
