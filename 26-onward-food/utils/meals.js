@@ -5,7 +5,6 @@ export const getMeals = async () => {
 }
 export const getMeal = async (slug) => {
     const meal = await turso.execute("SELECT * FROM meals WHERE slug=?" , [slug]);
-    console.log(meal.rows);
     return meal.rows[0];
 }
 export const addMeal = async (meal) => {

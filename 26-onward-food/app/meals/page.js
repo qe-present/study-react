@@ -4,6 +4,10 @@ import MealGrid from "@/components/meals/meal-grid";
 import {Suspense} from "react";
 import {getMeals} from "@/utils/meals";
 import Loading from "./loading";
+export const metadata = {
+    title: '全球美食',
+    description: '分享你最喜欢的美食',
+};
 
 async function Meals() {
     const meals = await getMeals();
