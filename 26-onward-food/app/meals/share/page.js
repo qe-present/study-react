@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import classes from './page.module.css';
-import MealsFormSubmit from './meals-form-submit';
+import MealsFormSubmit from '@/components/meals/meals-form-submit';
 import ImagePicker from '@/components/meals/image-picker';
 import { shareMeal } from './actions';
 

@@ -26,9 +26,6 @@ export default function Header() {
                         <li>
                             <NavLink href="/community">Foodies Community </NavLink>
                         </li>
-                        <li>
-                            <NavLink href="/test">test </NavLink>
-                        </li>
                     </ul>
                 </nav>
             </header>

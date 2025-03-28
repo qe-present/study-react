@@ -8,3 +8,11 @@ export const getMeal = async (slug) => {
     console.log(meal.rows);
     return meal.rows[0];
 }
+export const addMeal = async (meal) => {
+
+    await turso.execute(
+        'INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [meal.title, meal.summary, meal.instructions, meal.creator, meal.creator_email, meal.image, meal.slug]
+    );
+    return true
+}
