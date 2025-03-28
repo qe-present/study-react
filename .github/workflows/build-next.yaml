@@ -25,7 +25,7 @@ jobs:
             npm install
             npm run build
         - name: 上传
-          uses: action/upload-artifact@v4
+          uses: actions/upload-artifact@v4
           with:
             name: dist
             path: 26-onward-food/dist
