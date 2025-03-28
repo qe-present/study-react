@@ -1,0 +1,33 @@
+name: 打包Next项目
+on:
+  workflow_dispatch:
+    inputs:
+      MESSAGE:
+        description: '是否构建'
+        required: true
+        type: boolean
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: 读取仓库内容
+          uses: actions/checkout@v4
+
+        - name: 设置node版本
+          uses: actions/setup-node@v4
+          with:
+            node-version: '22'
+
+        - name: 安装依赖
+          run: |
+            cd 26-onward-food
+            npm install
+            npm run build
+        - name: 上传
+          uses: action/upload-artifact@v4
+          with:
+            name: dist
+            path: 26-onward-food/dist
+
+
