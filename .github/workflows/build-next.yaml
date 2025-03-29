@@ -28,6 +28,6 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: dist
-            path: 26-onward-food/dist
+            path: 26-onward-food/.next/
 
 
