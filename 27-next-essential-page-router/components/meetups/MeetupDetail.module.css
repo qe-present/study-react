@@ -1,0 +1,80 @@
+.detail {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+  transition: transform 0.5s ease;
+}
+
+.imageContainer:hover img {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+}
+
+.detail h1 {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.detail address {
+  font-style: normal;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin: 1rem auto;
+  padding: 0.7rem 1.5rem;
+  display: inline-block;
+  background-color: var(--primary-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.descriptionContainer {
+  margin: 2rem auto;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  max-width: 90%;
+  padding: 0.5rem;
+}
+
+.detail p {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  text-align: left;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
