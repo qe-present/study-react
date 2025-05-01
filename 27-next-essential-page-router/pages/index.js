@@ -1,5 +1,6 @@
 import MeetupList from "@/components/meetups/MeetupList";
 import Layout from "@/components/layout/Layout";
+import {useEffect, useState} from "react";
 
 const DUMMY_MEETUPS = [
     {
@@ -24,11 +25,32 @@ const DUMMY_MEETUPS = [
         description: 'this is the third meetup'
     }
 ]
+// export function getServerSideProps(context) {
+//     const req = context.req;
+//     const res = context.res;
+//     return {
+//         props: {
+//             meetups: DUMMY_MEETUPS
+//         }
+//     }
+// }
+export async function getStaticProps(){
+    // fetch data from an API
+    return {
+        props: {
+            meetups: DUMMY_MEETUPS
+        },
+        revalidate: 10,
+    }
+}
+//getServerSideProps：每次请求时运行（动态服务器渲染）
+//
+// getStaticProps + revalidate：构建时生成，之后定期重新验证（增量静态再生）
+export default function HomePage(props) {
 
-export default function HomePage() {
     return (
         <>
-                <MeetupList meetups={DUMMY_MEETUPS}/>
+                <MeetupList meetups={props.meetups}/>
         </>
     )
 }
